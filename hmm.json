@@ -4,8 +4,7 @@
       "name": "FlxPartialSound",
       "type": "git",
       "dir": null,
-      "ref": "26ed20b9c181a576f4cbe18ccdea38912c01476e",
-      "url": "https://github.com/FunkinCrew/FlxPartialSound.git"
+      "url": "https://github.com/youbadao-sussy/FlxPartialSound.git"
     },
     {
       "name": "astc-compressor",
@@ -52,22 +51,19 @@
       "name": "flixel",
       "type": "git",
       "dir": null,
-      "ref": "c8e79d2a42f9c11c639519ef2a6fd7ef2379a8aa",
-      "url": "https://github.com/FunkinCrew/flixel"
+      "url": "https://github.com/youbadao-sussy/flixel"
     },
     {
       "name": "flixel-addons",
       "type": "git",
       "dir": null,
-      "ref": "6fa30b3f5209146c852c25f3d1003e08898083e2",
-      "url": "https://github.com/FunkinCrew/flixel-addons"
+      "url": "https://github.com/youbadao-sussy/flixel-addons"
     },
     {
       "name": "flixel-animate",
       "type": "git",
       "dir": null,
-      "ref": "c61476f4b3a3d225631ab3065e4e925a4b63c076",
-      "url": "https://github.com/MaybeMaru/flixel-animate"
+      "url": "https://github.com/youbadao-sussy/flixel-animate"
     },
     {
       "name": "format",
@@ -78,15 +74,13 @@
       "name": "funkin.vis",
       "type": "git",
       "dir": null,
-      "ref": "02bada154b474c2554709b9d12aef0cbf0da3ec9",
-      "url": "https://github.com/FunkinCrew/funkVis"
+      "url": "https://github.com/youbadao-sussy/funkVis"
     },
     {
       "name": "grig.audio",
       "type": "git",
       "dir": "src",
-      "ref": "6409f3c6d1b4c52176813d3ede86c0d34e8af2c1",
-      "url": "https://github.com/FunkinCrew/grig.audio"
+      "url": "https://github.com/youbadao-sussy/grig.audio"
     },
     {
       "name": "hamcrest",
@@ -97,8 +91,7 @@
       "name": "haxeui-core",
       "type": "git",
       "dir": null,
-      "ref": "088b153b35985f8e4419ef710057ebd5b3749513",
-      "url": "https://github.com/FunkinCrew/haxeui-core"
+      "url": "https://github.com/youbadao-sussy/haxeui-core"
     },
     {
       "name": "haxeui-flixel",
@@ -108,25 +101,22 @@
       "url": "https://github.com/haxeui/haxeui-flixel"
     },
     {
-      "name": "hscript",
+      "name": "hscript-iris",
       "type": "git",
       "dir": null,
-      "ref": "dcc6f822e0866ca4fda300ed23e99559260f7bf5",
-      "url": "https://github.com/FunkinCrew/hscript"
+      "url": "https://github.com/youbadao-sussy/hscript-iris"
     },
     {
       "name": "hxcpp",
       "type": "git",
       "dir": null,
-      "ref": "5932340d095a7eea8635fe4d1355f1c0efd0b3c2",
-      "url": "https://github.com/FunkinCrew/hxcpp"
+      "url": "https://github.com/youbadao-sussy/hxcpp"
     },
     {
       "name": "hxcpp-debug-server",
       "type": "git",
       "dir": "hxcpp-debug-server",
-      "ref": "7459934666a473a4cc4d066ba4a93ef92f1ce94c",
-      "url": "https://github.com/FunkinCrew/hxcpp-debugger"
+      "url": "https://github.com/youbadao-sussy/hxcpp-debugger"
     },
     {
       "name": "hxdiscord_rpc",
@@ -159,8 +149,7 @@
       "name": "json2object",
       "type": "git",
       "dir": null,
-      "ref": "a7e4cef3d444bea8d8244d6e59ab82f5a593f597",
-      "url": "https://github.com/FunkinCrew/json2object"
+      "url": "https://github.com/youbadao-sussy/json2object"
     },
     {
       "name": "jsonpatch",
@@ -176,8 +165,7 @@
       "name": "lime",
       "type": "git",
       "dir": null,
-      "ref": "318253ea3a28a3299a167748912c40444f403777",
-      "url": "https://github.com/FunkinCrew/lime"
+      "url": "https://github.com/youbadao-sussy/lime"
     },
     {
       "name": "newgrounds",
@@ -191,7 +179,7 @@
       "type": "git",
       "dir": null,
       "ref": "a69a6e778816c6a57eba7a91bfb0b60295508e88",
-      "url": "https://github.com/FunkinCrew/openfl"
+      "url": "https://github.com/youbadao-sussy/openfl"
     },
     {
       "name": "polymod",
