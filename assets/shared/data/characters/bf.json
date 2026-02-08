@@ -1,0 +1,49 @@
+{
+  "name": "Boyfriend",
+  "renderType": "sparrow",
+  "image": "characters/BOYFRIEND",
+  "scale": 1,
+  "singTime": 8.0,
+  "healthicon": [
+    {
+      "id": "bf",
+      "scale": 1,
+      "flipX": false,
+      "isPixel": false,
+      "offsets": [0, 0]
+    }
+  ],
+  "offsets": [17, 14],
+  "cameraOffsets": [-18, 36],
+  "flipX": true,
+  "no_antialiasing": false,
+  "isPixel": false,
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "BF idle dance",
+      "fps": 24
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "BF NOTE LEFT",
+      "fps": 24
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "BF NOTE DOWN",
+      "fps": 24
+    },
+    {
+      "name": "singUP",
+      "prefix": "BF NOTE UP",
+      "fps": 24
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "BF NOTE RIGHT",
+      "fps": 24
+    }
+  ],
+  "generatedBy": "Youbadao (by hand)"
+}
