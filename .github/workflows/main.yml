@@ -50,7 +50,7 @@ jobs:
           key: cache-build-windows
           path: |
             .haxelib/
-            export/debug/windows/haxe/
-            export/debug/windows/obj/
+            export/release/windows/haxe/
+            export/release/windows/obj/
           restore-keys: |
             cache-build-windows
