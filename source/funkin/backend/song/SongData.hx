@@ -39,8 +39,8 @@ class SongCharaDeta
 
 class SongOffsetData
 {
-  public var opponent:Map<String, AdjustColorShader>;
-  public var player:Map<String, AdjustColorShader>;
+  public var opponent:Float;
+  public var player:Float;
   public var instrumental:Float = 0;
   public var altInstrumental:Map<String, Float>;
 }
