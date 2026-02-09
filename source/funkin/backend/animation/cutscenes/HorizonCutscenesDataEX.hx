@@ -1,6 +1,6 @@
 package source.funkin.backend.animation.cutscenes;
 
-class CutscenesDataMain
+class CutscenesMetaData
 {
   public var name:String = "Your Cutscenes";
   public var artist:String = "Unknown";
@@ -11,9 +11,29 @@ class CutscenesDataMain
   public var seen:Array<CutsceneData>;
 }
 
+class CutsceneData
+{
+  public var name:String = "Start";
+  public var frame:String = "0";
+  public var animation:Map<String, CutscenesAnimationData>;
+}
+
+class CutscenesAnimationData
+{
+  @:alias("ps") public var offsets:Array<Int> = [0, 0];
+  @:alias("an") public var animation:AnimationPartsData;
+}
+
+class AnimationPartsData
+{
+  public var name:String = "idle";
+  public var framerate:Int = 24;
+  @:optional public var indices:Array<Int>;
+}
+
 class CutsceneCharacterData
 {
-  public var name:String = "Character";
+  public var name:String = "Your Character";
   public var assets:Array<CutscenesCharPartsData>;
 }
 
