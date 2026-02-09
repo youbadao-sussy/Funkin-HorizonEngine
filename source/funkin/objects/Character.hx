@@ -144,7 +144,7 @@ class Character extends FlxSprite
     curCharacter = character;
     var characterPath:String = 'data/characters/$character.json';
 
-    var path:String = Paths.getPath(characterPath, TEXT);
+    var path:String = Paths.getPath(characterPath, TEXT, 'shared');
     /*
       #if MODS_ALLOWED
       if (!FileSystem.exists(path))

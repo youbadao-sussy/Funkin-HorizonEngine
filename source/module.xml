@@ -15,6 +15,6 @@
 		<class package="haxe.ui.containers" loadAll="true" />
 		<class package="haxe.ui.core" loadAll="true" />
 		<!-- Custom components. -->
-		<class package="funkin.ui.haxeui.components" loadAll="true" />
+		<!--<class package="funkin.ui.haxeui.components" loadAll="true" />-->
 	</components>
 </module>

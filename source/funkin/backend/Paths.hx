@@ -82,17 +82,8 @@ class Paths implements ConsoleClass
     FlxG.bitmap.remove(graphic);
   }
 
-  public static function setCurrentLevel(name:Null<String>):Void
-  {
-    if (name == null)
-    {
-      currentLevel = null;
-    }
-    else
-    {
-      currentLevel = name.toLowerCase();
-    }
-  }
+  static public function setCurrentLevel(name:String)
+    currentLevel = name.toLowerCase();
 
   public static function stripLibrary(path:String):String
   {

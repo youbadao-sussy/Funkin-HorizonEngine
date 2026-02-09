@@ -84,7 +84,7 @@ class PlayState extends FlxState
 
     add(playerGroup);
 
-    FlxG.camera.follow(camFollow, LOCKON, 0);
+    // FlxG.camera.follow(camFollow, LOCKON, 0);
 
     camFollow.x -= player.cameraPosition[0] - playerCameraOffset[0];
     camFollow.y += player.cameraPosition[1] + playerCameraOffset[1];
