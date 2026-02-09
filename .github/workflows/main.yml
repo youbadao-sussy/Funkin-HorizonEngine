@@ -15,6 +15,16 @@ jobs:
         with:
           haxe-version: 4.3.4
       # Runs a set of commands using the runners shell
+      - name: Restore Cache
+        uses: actions/cache@main
+        with:
+          key: cache-build-windows
+          path: |
+            .haxelib/
+            export/release/windows/haxe/
+            export/release/windows/obj/
+          restore-keys: |
+            cache-build-windows
       - name: Install Haxelib
         run: |
           haxelib setup C:/haxelib
@@ -34,3 +44,13 @@ jobs:
           name: Funkin' HorizonEngine-Windows
           path: export/release/windows/bin
           retention-days: 3
+      - name: Uploading new cache
+        uses: actions/cache@main
+        with:
+          key: cache-build-windows
+          path: |
+            .haxelib/
+            export/debug/windows/haxe/
+            export/debug/windows/obj/
+          restore-keys: |
+            cache-build-windows
