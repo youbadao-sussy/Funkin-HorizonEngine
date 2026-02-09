@@ -33,7 +33,6 @@
 	<!--<source path="source" />-->
 	<classpath path="source" />
 	<assets path="assets" />
-	<!--<assets path="assets/shared/images/characters/BOYFRIEND.png" />-->
 
 	<!-- ______________________ HORIZON ENGINE CUSTOMIZATION ______________________ -->
 
