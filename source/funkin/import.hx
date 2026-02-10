@@ -1,6 +1,11 @@
+// no macro
 #if !macro
 // Discord API
-// Psych
+// Horizon Engine Utils
+#if LUA_ALLOWED
+import llua.*;
+import llua.Lua;
+#end
 #if sys
 import sys.*;
 import sys.io.*;

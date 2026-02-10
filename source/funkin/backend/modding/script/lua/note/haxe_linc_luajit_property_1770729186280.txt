@@ -1,0 +1,90 @@
+了解です。では、先ほどの Haxe + linc_luajit の「プロパティ（Lua の変数やテーブルのフィールド）」の扱い方を 日本語 で説明します。
+
+例: Lua のプロパティを Haxe から設定・取得する
+Haxeimport cpp.Lib;
+import linc.luajit.Lua;
+
+class Main {
+    static function main() {
+        // Luaステートを作成
+        var L = Lua.luaL_newstate();
+        if (L == null) {
+            trace("Luaステートの作成に失敗しました");
+            return;
+        }
+
+        // 標準Luaライブラリを開く
+        Lua.luaL_openlibs(L);
+
+        // --- グローバル変数を設定 ---
+        Lua.lua_pushnumber(L, 42); // スタックに数値をプッシュ
+        Lua.lua_setglobal(L, "myNumber"); // Lua側で myNumber = 42
+
+        // --- グローバル変数を取得 ---
+        Lua.lua_getglobal(L, "myNumber"); // myNumber をスタックにプッシュ
+        if (Lua.lua_isnumber(L, -1)) {
+            var value:Float = Lua.lua_tonumber(L, -1);
+            trace("LuaのmyNumber = " + value);
+        }
+        Lua.lua_pop(L, 1); // スタックから値を削除
+
+        // --- テーブルのプロパティを設定 ---
+        Lua.lua_newtable(L); // 新しいテーブルを作成
+        Lua.lua_pushstring(L, "Haxeからの挨拶");
+        Lua.lua_setfield(L, -2, "greeting"); // table.greeting = "Haxeからの挨拶"
+        Lua.lua_setglobal(L, "myTable"); // グローバル変数 myTable に設定
+
+        // --- テーブルのプロパティを取得 ---
+        Lua.lua_getglobal(L, "myTable");
+        if (Lua.lua_istable(L, -1)) {
+            Lua.lua_getfield(L, -1, "greeting");
+            if (Lua.lua_isstring(L, -1)) {
+                var greeting = Lua.lua_tostring(L, -1);
+                trace("LuaのmyTable.greeting = " + greeting);
+            }
+            Lua.lua_pop(L, 1); // greeting をポップ
+        }
+        Lua.lua_pop(L, 1); // テーブルをポップ
+
+        // Luaステートを閉じる
+        Lua.lua_close(L);
+    }
+}
+
+
+解説
+
+lua_setglobal / lua_getglobal
+
+Lua のグローバル変数を設定・取得する。
+
+
+lua_setfield / lua_getfield
+
+Lua のテーブルのフィールド（プロパティ）を設定・取得する。
+
+
+スタック管理
+
+使い終わった値は lua_pop で削除し、スタックをバランスさせる。
+
+
+型チェック
+
+lua_isnumber / lua_isstring / lua_istable で型を確認してから値を取得する。
+
+
+
+
+このコードを実行すると、
+
+Lua 側に myNumber = 42 が設定され、Haxe 側で取得して表示
+Lua 側に myTable.greeting = "Haxeからの挨拶" が設定され、Haxe 側で取得して表示
+
+が行われます。
+
+もし希望があれば、次のステップとして
+「Haxe のクラスのプロパティを Lua から直接アクセスできるようにする」
+メタテーブルを使ったサンプルも作れます。
+これ、作りますか？
+そうすれば Lua スクリプトから obj.name のように直接 Haxe オブジェクトのプロパティを読めます。

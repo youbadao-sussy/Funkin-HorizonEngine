@@ -1,0 +1,126 @@
+OKです 👍
+では、Haxe のクラスのプロパティを Lua から直接アクセスできるようにする
+linc_luajit + メタテーブル のサンプルを作ります。
+
+目的
+
+Haxe 側に Person クラスを作る
+Lua 側から person.name や person.age にアクセスできるようにする
+Lua 側で値を変更すると Haxe 側のオブジェクトにも反映される
+
+
+完全サンプルコード
+Haxeimport cpp.Lib;
+import linc.luajit.Lua;
+
+class Person {
+    public var name:String;
+    public var age:Int;
+
+    public function new(name:String, age:Int) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+class Main {
+    static function main() {
+        var L = Lua.luaL_newstate();
+        Lua.luaL_openlibs(L);
+
+        // Personクラスのインスタンスを作成
+        var person = new Person("Taro", 20);
+
+        // HaxeオブジェクトをLuaに渡す
+        pushPerson(L, person);
+        Lua.lua_setglobal(L, "person");
+
+        // Luaスクリプトを実行
+        var script = "
+            print('Luaからアクセス: name =', person.name, ', age =', person.age)
+            person.name = 'Jiro'
+            person.age = 25
+            print('変更後: name =', person.name, ', age =', person.age)
+        ";
+        if (Lua.luaL_dostring(L, script) != 0) {
+            trace('Luaエラー: ' + Lua.lua_tostring(L, -1));
+        }
+
+        // Haxe側で変更を確認
+        trace('Haxe側: name = ' + person.name + ', age = ' + person.age);
+
+        Lua.lua_close(L);
+    }
+
+    // PersonオブジェクトをLuaにpushする関数
+    static function pushPerson(L:Dynamic, p:Person) {
+        // ユーザーデータとしてHaxeオブジェクトを保持
+        var ud = Lua.lua_newuserdata(L, cpp.Native.sizeof(p));
+        cpp.Native.memcpy(ud, cpp.Pointer.addressOf(p), cpp.Native.sizeof(p));
+
+        // メタテーブル作成
+        Lua.lua_newtable(L);
+
+        // __index メソッド（プロパティ取得）
+        Lua.lua_pushcfunction(L, function(L) {
+            var obj:Person = cpp.Pointer.fromRaw(Lua.lua_touserdata(L, 1)).ref;
+            var key = Lua.lua_tostring(L, 2);
+            switch (key) {
+                case "name": Lua.lua_pushstring(L, obj.name);
+                case "age": Lua.lua_pushinteger(L, obj.age);
+                default: Lua.lua_pushnil(L);
+            }
+            return 1;
+        });
+        Lua.lua_setfield(L, -2, "__index");
+
+        // __newindex メソッド（プロパティ設定）
+        Lua.lua_pushcfunction(L, function(L) {
+            var obj:Person = cpp.Pointer.fromRaw(Lua.lua_touserdata(L, 1)).ref;
+            var key = Lua.lua_tostring(L, 2);
+            switch (key) {
+                case "name": obj.name = Lua.lua_tostring(L, 3);
+                case "age": obj.age = Lua.lua_tointeger(L, 3);
+            }
+            return 0;
+        });
+        Lua.lua_setfield(L, -2, "__newindex");
+
+        // メタテーブルをユーザーデータに設定
+        Lua.lua_setmetatable(L, -2);
+    }
+}
+
+
+実行結果例
+Luaからアクセス: name =	Taro	, age =	20
+変更後: name =	Jiro	, age =	25
+Haxe側: name = Jiro, age = 25
+
+
+解説
+
+ユーザーデータ (lua_newuserdata)
+
+Lua 側に Haxe オブジェクトのポインタを渡す
+
+
+メタテーブル (__index / __newindex)
+
+__index → Lua からプロパティ取得時に呼ばれる
+__newindex → Lua からプロパティ設定時に呼ばれる
+
+
+双方向アクセス
+
+Lua 側で変更した値が Haxe 側のオブジェクトに反映される
+
+
+
+
+💡 この仕組みを使えば、Lua スクリプトから Haxe のゲームオブジェクトや設定値を直接操作できるようになります。
+例えばゲームエンジン内で player.hp や enemy.speed を Lua から変更可能にできます。
+
+もし希望があれば、このサンプルを 「複数のHaxeクラスをLuaに登録して使えるようにする」 形に拡張できます。
+これを作れば、Lua 側で newPlayer() みたいに生成も可能になります。
+これ、作りますか？

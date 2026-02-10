@@ -1,4 +1,4 @@
-package source.funkin.backend.modding.script;
+package source.funkin.backend.modding.script.lua;
 
 /*
   import funkin.objects.Character;
