@@ -8,6 +8,7 @@ import flixel.input.keyboard.FlxKey;
 import flixel.FlxState;
 #if sys
 import sys.FileSystem;
+import sys.io.File;
 #elseif js
 import js.html.FileSystem;
 #end
