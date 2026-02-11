@@ -85,6 +85,14 @@ class Main extends Sprite
     addChild(game);
     // Lib.current.stage.align = "tl";
     // Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
+    #if html5
+    FlxG.autoPause = false;
+    FlxG.mouse.visible = false;
+    #end
+
+    FlxG.fixedTimestep = false;
+    FlxG.game.focusLostFramerate = 60;
+    FlxG.keys.preventDefaultKeys = [TAB];
   }
 
   function initHaxeUI():Void
