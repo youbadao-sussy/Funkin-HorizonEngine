@@ -17,6 +17,7 @@ import openfl.display.Sprite;
 #if hxvlc
 import hxvlc.util.Handle;
 #end
+import haxe.io.Path;
 import openfl.display.Sprite;
 import openfl.display.StageScaleMode;
 import openfl.events.Event;
