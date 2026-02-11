@@ -37,6 +37,7 @@ class PlayState extends FlxState
 
   // Camera
   public var camFollow:FlxObject;
+  public var defaultCamZoom:Float = 1.00;
 
   // Stage
   public static var curStage:String = '';
