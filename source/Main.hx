@@ -2,6 +2,7 @@ package;
 
 import lime.system.System;
 import lime.app.Application;
+import flixel.graphics.FlxGraphic;
 import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.input.keyboard.FlxKey;
@@ -33,9 +34,11 @@ import funkin.states.InitState;
 import openfl.events.UncaughtErrorEvent;
 import haxe.CallStack;
 import haxe.io.Path;
+import sys.io.Process;
 #end
 
 using funkin.util.AnsiUtil;
+using StringTools;
 
 /**
  * The main class which initializes HaxeFlixel and starts the game in its initial state.
