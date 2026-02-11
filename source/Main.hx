@@ -1,6 +1,7 @@
 package;
 
 import lime.system.System;
+import lime.app.Application;
 import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.input.keyboard.FlxKey;
