@@ -5,6 +5,11 @@ import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.input.keyboard.FlxKey;
 import flixel.FlxState;
+#if sys
+import sys.FileSystem;
+#elseif js
+import js.html.FileSystem;
+#end
 import openfl.display.Sprite;
 // import funkin.ui.input.Cursor;
 #if hxvlc
