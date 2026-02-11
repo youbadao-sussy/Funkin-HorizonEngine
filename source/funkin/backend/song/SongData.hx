@@ -1,10 +1,11 @@
 package source.funkin.backend.song;
 
 import funkin.graphics.shaders.AdjustColorShader;
+import thx.semver.Version;
 
 class SongMetaData
 {
-  public var version:String;
+  public var version:Version;
   // public var title:String = "Unknown";
   // public var data:String = "unknown";
   public var songName:String = "Unknown";
@@ -47,6 +48,7 @@ class SongOffsetData
 
 class SongChartData
 {
+  public var version:Version;
   public var scrollSpeeds:Map<String, Float>;
   public var events:Array<Dynamic>;
   public var notes:Map<String, Array<SongNoteData>>;

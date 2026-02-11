@@ -1,5 +1,7 @@
 package source.funkin.backend.song;
 
+import thx.semver.Version;
+
 class FreeplayMetaData
 {
   public var version:String;
@@ -17,6 +19,7 @@ class FreeplayPlayableCategory
 
 class FreeplayMainData
 {
+  public var Version:Version;
   public var name:String = "Unknown Section";
   @:optional public var variation:String = "";
   public var difficulty:String = "Normal";
