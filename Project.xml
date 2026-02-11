@@ -8,6 +8,9 @@
 	<app title="Friday Night Funkin'" file="HorizonEngine" packageName="com.youbadao.horizonengine" package="com.youbadao.horizonengine" main="Main" version="0.0.1" company="HorizonEngine" />
 	<app swf-version="11" />
 
+	<!--Switch Export with Unique ApplicationID and Icon-->
+	<set name="APP_ID" value="0x0100f6c013bbc000" />
+
 	<!-- NOTE TO SELF: DISABLE THIS IF ISSUES ARE FOUND -->
 	<haxedef name="LINC_LUA_RELATIVE_DYNAMIC_LIB"/> <!-- stable luas PUT AFTER FIRST LINE WITH APP NAME AND ETC -->
 
@@ -127,6 +130,11 @@
 
 	<!--Enable this for Nape release builds for a serious peformance improvement-->
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
+
+	<!--Used for Izzy Engine's crash handler-->
+	<haxedef name="HXCPP_CHECK_POINTER" if="CRASH_HANDLER" />
+	<haxedef name="HXCPP_STACK_LINE" if="CRASH_HANDLER" />
+	<haxedef name="HXCPP_STACK_TRACE" if="CRASH_HANDLER" />
 
 	<!-- Haxe 4.3.0+: Enable pretty syntax errors and stuff. -->
 	<!-- pretty (haxeflixel default), indent, classic (haxe compiler default) -->
