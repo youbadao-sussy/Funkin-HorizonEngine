@@ -18,11 +18,11 @@ import openfl.display.BitmapData;
 import lime.utils.Assets;
 import flash.media.Sound;
 
+// @:nullSafety
+
 /**
  * A core class which handles determining asset paths.
  */
-// @:nullSafety
-
 @:access(openfl.display.BitmapData)
 class Paths implements ConsoleClass
 {
@@ -172,21 +172,21 @@ class Paths implements ConsoleClass
     return getPath('$directory$key.srt', TEXT, library);
   }
 
-  /*
-    public static function sound(key:String, ?library:String):String
-    {
-      return getPath('sounds/$key.${Constants.EXT_SOUND}', SOUND, library);
-    }
+  public static function sound(key:String, ?library:String):String
+  {
+    return getPath('sounds/$key.$SOUND_EXT', SOUND, library);
+  }
 
-    public static function soundRandom(key:String, min:Int, max:Int, ?library:String):String
-    {
-      return sound(key + FlxG.random.int(min, max), library);
-    }
+  public static function soundRandom(key:String, min:Int, max:Int, ?library:String):String
+  {
+    return sound(key + FlxG.random.int(min, max), library);
+  }
 
-    public static function music(key:String, ?library:String):String
-    {
-      return getPath('music/$key.${Constants.EXT_SOUND}', MUSIC, library);
-  }*/
+  public static function music(key:String, ?library:String):String
+  {
+    return getPath('music/$key.$SOUND_EXT', MUSIC, library);
+  }
+
   /*
     public static function videos(key:String, ?library:String):String
     {

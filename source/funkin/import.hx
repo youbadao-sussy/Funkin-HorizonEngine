@@ -34,9 +34,12 @@ import flixel.input.keyboard.FlxKey;
 // Funkin
 import funkin.backend.Paths;
 import funkin.backend.save.SettingSaveData;
+import funkin.backend.api.HorizonDebugDisplay;
 import funkin.Assets;
 import funkin.states.PlayState;
 import funkin.states.InitState;
+import funkin.util.GreatUtil;
+import funkin.ui.text.Alphabet;
 // Haxe
 import haxe.ds.Option;
 // OpenFL

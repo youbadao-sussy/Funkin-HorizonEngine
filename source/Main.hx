@@ -28,6 +28,7 @@ import openfl.net.NetStream;
 #if !macro
 import funkin.states.PlayState;
 import funkin.states.InitState;
+import funkin.backend.api.HorizonDebugDisplay;
 #end
 // crash handler stuff
 #if CRASH_HANDLER
