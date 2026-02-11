@@ -1,1 +1,1 @@
-package source.funkin.backend.modding;
+package funkin.backend.modding;

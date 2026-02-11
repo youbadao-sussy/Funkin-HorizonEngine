@@ -1,4 +1,4 @@
-package source.funkin.backend.modding;
+package funkin.backend.modding;
 
 /**
  * It is Contents(mods) Data!

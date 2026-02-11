@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project xmlns="http://lime.openfl.org/project/1.0.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://lime.openfl.org/project/1.0.4"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/xsd/project-1.0.4.xsd">
 
 	<!-- _________________________ Application Settings _________________________ -->
 
 	<app title="Friday Night Funkin'" file="HorizonEngine" packageName="com.youbadao.horizonengine" package="com.youbadao.horizonengine" main="Main" version="0.0.1" company="HorizonEngine" />
+	<app swf-version="11" />
+
+	<!-- NOTE TO SELF: DISABLE THIS IF ISSUES ARE FOUND -->
+	<haxedef name="LINC_LUA_RELATIVE_DYNAMIC_LIB"/> <!-- stable luas PUT AFTER FIRST LINE WITH APP NAME AND ETC -->
 
 	<!--The flixel preloader is not accurate in Chrome. You can use it regularly if you embed the swf into a html file
 		or you can set the actual size of your file manually at "FlxPreloaderBase-onUpdate-bytesTotal"-->
 	<app preloader="flixel.system.FlxPreloader" />
 
 	<!--Minimum without FLX_NO_GAMEPAD: 11.8, without FLX_NO_NATIVE_CURSOR: 11.2-->
-	<set name="SWF_VERSION" value="11.8" />
+	<!--<set name="SWF_VERSION" value="11.8" />-->
 
 	<!-- ____________________________ Window Settings ___________________________ -->
 
 	<!--These window settings apply to all targets-->
-	<window width="1280" height="720" fps="60" background="#000000" hardware="true" vsync="false" allow-high-dpi="true" />
+	<window width="1280" height="720" fps="60" background="#000000" hardware="true" vsync="false"/>
 
 	<!--HTML5-specific-->
 	<window if="html5" resizable="true" />
@@ -25,7 +30,7 @@
 	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" vsync="false"/>
 
 	<!--Mobile-specific-->
-	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" />
+	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false"/>
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
@@ -34,7 +39,19 @@
 	<set name="BUILD_DIR" value="export/32bit" if="32bits" />
 
 	<source path="source" />
+	<!-- __________________________ Game Assets & Etc. __________________________ -->
 	<assets path="assets" />
+
+	<!-- <assets path="assets/shared"        exclude="*.ogg" if="web"/>
+	<assets path="assets/shared"        exclude="*.mp3" unless="web"/>
+	<assets path="assets/data"/>
+	<assets path="assets/images"/> -->
+
+	<section if="MODS_ALLOWED">
+		<!-- <assets path='example_contents' rename='content' embed='false' type='template' unless="mac"/> -->
+		<!-- <assets path='example_contents' rename='content' embed='false' if="mac"/> -->
+		 <assets path='example_contents' rename='content' embed='false'/>
+	</section>
 
 	<!-- ______________________ HORIZON ENGINE CUSTOMIZATION ______________________ -->
 
@@ -113,6 +130,8 @@
 	<!--Macro fixes-->
 	<haxeflag name="--macro" value="allowPackage('flash')" />
 	<haxeflag name="--macro" value="include('my.pack')" />
+
+	<haxedef name="hscriptPos" if="HSCRIPT_ALLOWED" />
 
 	<!-- _________________________________ Custom _______________________________ -->
 

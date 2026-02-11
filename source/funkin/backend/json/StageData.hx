@@ -1,1 +1,1 @@
-package source.funkin.backend.json;
+package funkin.backend.json;
