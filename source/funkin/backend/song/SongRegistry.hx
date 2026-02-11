@@ -1,4 +1,4 @@
-package source.funkin.backend.song;
+package funkin.backend.song;
 
 import thx.semver.Version;
 import thx.semver.VersionRule;
@@ -11,4 +11,6 @@ class SongRegistry
 
   public static final SONG_METADATA_VERSION_RULE:Version = "1.0.X";
   public static final SONG_CHART_DATA_VERSION_RULE:Version = "1.0.X";
+
+  public static var DEFAULT_GENERATEDBY(get, never):String;
 }

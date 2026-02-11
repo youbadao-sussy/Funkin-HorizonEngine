@@ -1,4 +1,4 @@
-package source.funkin.backend.modding.script.hscript;
+package funkin.backend.modding.script.hscript;
 
 #if HSCRIPT_ALLOWED
 import crowplexus.iris.Iris;

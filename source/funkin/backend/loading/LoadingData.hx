@@ -1,4 +1,4 @@
-package source.funkin.backend.loading;
+package funkin.backend.loading;
 
 /**
  * Loading Json Data

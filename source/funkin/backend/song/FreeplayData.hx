@@ -1,4 +1,4 @@
-package source.funkin.backend.song;
+package funkin.backend.song;
 
 import thx.semver.Version;
 

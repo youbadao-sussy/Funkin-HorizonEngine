@@ -1,11 +1,13 @@
-package source.funkin.backend.song;
+package funkin.backend.song;
 
 import funkin.graphics.shaders.AdjustColorShader;
 import thx.semver.Version;
+import funkin.backend.song.SongRegistry;
 
 class SongMetaData
 {
   public var version:Version;
+
   // public var title:String = "Unknown";
   // public var data:String = "unknown";
   public var songName:String = "Unknown";
@@ -13,6 +15,36 @@ class SongMetaData
   public var charter:String = "Unknown";
   public var bpm:Float = 150;
   public var playData:SongPlayData;
+
+  @:default(SongRegistry.DEFAULT_GENERATEDBY)
+  public var generatedBy:String;
+
+  @:optional
+  @:default(funkin.data.song.SongData.SongTimeFormat.MILLISECONDS)
+  public var timeFormat:SongTimeFormat;
+
+  public var timeChanges:Array<SongTimeChange>;
+
+  /**
+   * Defaults to `Constants.DEFAULT_VARIATION`. Populated later.
+   */
+  @:jignored
+  public var variation:String;
+
+  public function new(songName:String, artist:String, ?charter:String, ?variation:String)
+  {
+    this.version = SongRegistry.SONG_METADATA_VERSION;
+    this.songName = songName;
+    this.artist = artist;
+    this.charter = (charter == null) ? null : charter;
+  }
+}
+
+enum abstract SongTimeFormat(String) from String to String
+{
+  var TICKS = 'ticks';
+  var FLOAT = 'float';
+  var MILLISECONDS = 'ms';
 }
 
 class SongPlayData

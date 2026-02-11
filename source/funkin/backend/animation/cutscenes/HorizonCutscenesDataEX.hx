@@ -1,4 +1,4 @@
-package source.funkin.backend.animation.cutscenes;
+package funkin.backend.animation.cutscenes;
 
 class CutscenesMetaData
 {
