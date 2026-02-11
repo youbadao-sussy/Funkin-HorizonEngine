@@ -20,6 +20,12 @@ import openfl.net.NetStream;
 import funkin.states.PlayState;
 import funkin.states.InitState;
 #end
+// crash handler stuff
+#if CRASH_HANDLER
+import openfl.events.UncaughtErrorEvent;
+import haxe.CallStack;
+import haxe.io.Path;
+#end
 
 using funkin.util.AnsiUtil;
 
@@ -83,8 +89,8 @@ class Main extends Sprite
 
     var game:FlxGame = new FlxGame(gameWidth, gameHeight, initialState, framerate, framerate, skipSplash, (FlxG.stage.window.fullscreen));
     addChild(game);
-    // Lib.current.stage.align = "tl";
-    // Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
+    Lib.current.stage.align = "tl";
+    Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
     #if html5
     FlxG.autoPause = false;
     FlxG.mouse.visible = false;
@@ -93,6 +99,29 @@ class Main extends Sprite
     FlxG.fixedTimestep = false;
     FlxG.game.focusLostFramerate = 60;
     FlxG.keys.preventDefaultKeys = [TAB];
+    #if CRASH_HANDLER
+    Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
+    #end
+    // shader coords fix
+    FlxG.signals.gameResized.add(function(w, h) {
+      if (FlxG.cameras != null)
+      {
+        for (cam in FlxG.cameras.list)
+        {
+          if (cam != null && cam.filters != null) resetSpriteCache(cam.flashSprite);
+        }
+      }
+
+      if (FlxG.game != null) resetSpriteCache(FlxG.game);
+    });
+  }
+
+  static function resetSpriteCache(sprite:Sprite):Void
+  {
+    @:privateAccess {
+      sprite.__cacheBitmap = null;
+      sprite.__cacheBitmapData = null;
+    }
   }
 
   function initHaxeUI():Void
@@ -111,4 +140,55 @@ class Main extends Sprite
     funkin.ui.input.Cursor.registerHaxeUICursors();
     haxe.ui.tooltips.ToolTipManager.defaultDelay = 200;
   }
+
+  // Code was entirely made by sqirra-rng for their fnf engine named "Izzy Engine", big props to them!!!
+  // very cool person for real they don't get enough credit for their work
+  #if CRASH_HANDLER
+  function onCrash(e:UncaughtErrorEvent):Void
+  {
+    var errMsg:String = "";
+    var path:String;
+    var callStack:Array<StackItem> = CallStack.exceptionStack(true);
+    var dateNow:String = Date.now().toString();
+
+    dateNow = dateNow.replace(" ", "_");
+    dateNow = dateNow.replace(":", "'");
+
+    path = "./crash/" + "PsychEngine_" + dateNow + ".txt";
+
+    for (stackItem in callStack)
+    {
+      switch (stackItem)
+      {
+        case FilePos(s, file, line, column):
+          errMsg += file + " (line " + line + ")\n";
+        default:
+          Sys.println(stackItem);
+      }
+    }
+
+    errMsg += "\nUncaught Error: " + e.error;
+    // remove if you're modding and want the crash log message to contain the link
+    // please remember to actually modify the link for the github page to report the issues to.
+    #if officialBuild
+    errMsg += "\nPlease report this error to the GitHub page: https://github.com/youbadao-sussy/Funkin-HorizonEngine";
+    #end
+    errMsg += "\n\n> Crash Handler written by: sqirra-rng for Psych Engine";
+
+    if (!FileSystem.exists("./crash/")) FileSystem.createDirectory("./crash/");
+
+    File.saveContent(path, errMsg + "\n");
+
+    Sys.println(errMsg);
+    Sys.println("Crash dump saved in " + Path.normalize(path));
+
+    Application.current.window.alert(errMsg, "Error!");
+    /*
+      #if DISCORD_ALLOWED
+      DiscordClient.shutdown();
+      #end
+     */
+    Sys.exit(1);
+  }
+  #end
 }
