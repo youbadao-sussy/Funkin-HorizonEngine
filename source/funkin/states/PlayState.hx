@@ -84,10 +84,31 @@ class PlayState extends FlxState
 
     add(playerGroup);
 
-    // FlxG.camera.follow(camFollow, LOCKON, 0);
+    var camPos:FlxPoint = FlxPoint.get(playerCameraOffset[0], playerCameraOffset[1]);
 
-    camFollow.x -= player.cameraPosition[0] - playerCameraOffset[0];
-    camFollow.y += player.cameraPosition[1] + playerCameraOffset[1];
+    camFollow = new FlxObject();
+    camFollow.setPosition(camPos.x, camPos.y);
+    camPos.put();
+    add(camFollow);
+
+    FlxG.camera.follow(camFollow, LOCKON, 0);
+    FlxG.camera.zoom = defaultCamZoom;
+    FlxG.camera.snapToTarget();
+
+    FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
+
+    /*
+      camFollow.x -= player.cameraPosition[0] - playerCameraOffset[0];
+      camFollow.y += player.cameraPosition[1] + playerCameraOffset[1];
+     */
+    /*
+      var camPos:FlxPoint = FlxPoint.get(girlfriendCameraOffset[0], girlfriendCameraOffset[1]);
+      if (gf != null)
+      {
+        camPos.x += player.getGraphicMidpoint().x + player.cameraPosition[0];
+        camPos.y += player.getGraphicMidpoint().y + player.cameraPosition[1];
+      }
+     */
 
     Paths.clearUnusedMemory();
   }
