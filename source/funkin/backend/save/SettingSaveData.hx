@@ -177,7 +177,7 @@ class SettingSaveData
     for (key in Reflect.fields(data))
       if (key != 'gameplaySettings' && Reflect.hasField(FlxG.save.data, key)) Reflect.setField(data, key, Reflect.field(FlxG.save.data, key));
 
-    if (Main.fpsVar != null) Main.fpsVar.visible = data.showFPS;
+    // if (Main.fpsVar != null) Main.fpsVar.visible = data.showFPS;
 
     #if (!html5 && ! switch)
     FlxG.autoPause = SettingSaveData.data.autoPause;
