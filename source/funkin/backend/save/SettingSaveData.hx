@@ -163,7 +163,7 @@ class SettingSaveData
 
     // Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
     var save:FlxSave = new FlxSave();
-    save.bind('Save', CoolUtil.getSavePath());
+    save.bind('Save', GreatUtil.getSavePath());
     save.data.keyboard = keyBinds;
     save.data.gamepad = gamepadBinds;
     save.flush();
@@ -180,7 +180,7 @@ class SettingSaveData
     if (Main.fpsVar != null) Main.fpsVar.visible = data.showFPS;
 
     #if (!html5 && ! switch)
-    FlxG.autoPause = ClientPrefs.data.autoPause;
+    FlxG.autoPause = SettingSaveData.data.autoPause;
 
     if (FlxG.save.data.framerate == null)
     {
@@ -215,7 +215,7 @@ class SettingSaveData
 
     // controls on a separate save file
     var save:FlxSave = new FlxSave();
-    save.bind('controls_v3', CoolUtil.getSavePath());
+    save.bind('controls_v3', GreatUtil.getSavePath());
     if (save != null)
     {
       if (save.data.keyboard != null)

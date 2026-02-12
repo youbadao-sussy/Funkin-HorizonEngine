@@ -1,6 +1,7 @@
 // no macro
 #if !macro
 // Discord API
+import funkin.backend.api.DiscordClient;
 // Horizon Engine Utils
 #if LUA_ALLOWED
 import llua.*;
