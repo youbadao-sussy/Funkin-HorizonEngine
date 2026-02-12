@@ -303,6 +303,7 @@ class Paths implements ConsoleClass
         #else
         return FlxAtlasFrames.fromSparrow(imageLoaded, myXml);
         #end */
+      return FlxAtlasFrames.fromSparrow(imageLoaded, myXml);
     }
     else
     {
@@ -315,6 +316,7 @@ class Paths implements ConsoleClass
           #else
           return FlxAtlasFrames.fromTexturePackerJson(imageLoaded, myJson);
           #end */
+        return FlxAtlasFrames.fromTexturePackerJson(imageLoaded, myJson);
       }
     }
     return getPackerAtlas(key, library);
