@@ -8,8 +8,8 @@ class GreatUtil
   public static function checkForUpdates(url:String = null):String
   {
     if (url == null || url.length == 0) url = "https://raw.githubusercontent.com/youbadao-sussy/Funkin-HorizonEngine/main/version.txt";
-    var version:String = states.MainMenuState.psychEngineVersion.trim();
-    if (ClientPrefs.data.checkForUpdates)
+    var version:String = funkin.states.MainMenuState.horizonVersion.trim();
+    if (SettingSaveData.data.checkForUpdates)
     {
       trace('checking for updates...');
       var http = new haxe.Http(url);

@@ -158,7 +158,7 @@ class SettingSaveData
     for (key in Reflect.fields(data))
       Reflect.setField(FlxG.save.data, key, Reflect.field(data, key));
 
-    #if ACHIEVEMENTS_ALLOWED Achievements.save(); #end
+    // #if ACHIEVEMENTS_ALLOWED Achievements.save(); #end
     FlxG.save.flush();
 
     // Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
@@ -172,7 +172,7 @@ class SettingSaveData
 
   public static function loadPrefs()
   {
-    #if ACHIEVEMENTS_ALLOWED Achievements.load(); #end
+    // #if ACHIEVEMENTS_ALLOWED Achievements.load(); #end
 
     for (key in Reflect.fields(data))
       if (key != 'gameplaySettings' && Reflect.hasField(FlxG.save.data, key)) Reflect.setField(data, key, Reflect.field(FlxG.save.data, key));
