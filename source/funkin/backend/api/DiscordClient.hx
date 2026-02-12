@@ -162,7 +162,7 @@ class DiscordClient
   #end
 }
 
-@:allow(backend.DiscordClient)
+@:allow(funkin.backend.api.DiscordClient)
 private final class DiscordPresence
 {
   public var state(get, set):String;
