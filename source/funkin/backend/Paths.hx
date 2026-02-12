@@ -294,7 +294,7 @@ class Paths implements ConsoleClass
     var useMod = false;
     var imageLoaded:FlxGraphic = image(key, library);
 
-    var myXml:Dynamic = getPath('images/$key.xml', TEXT, library);
+    var myXml:Dynamic = getPath('images/$key.xml', TEXT, "shared");
     if (OpenFlAssets.exists(myXml) #if MODS_ALLOWED || (FileSystem.exists(myXml) && (useMod = true)) #end)
     {
       /*
@@ -307,7 +307,7 @@ class Paths implements ConsoleClass
     }
     else
     {
-      var myJson:Dynamic = getPath('images/$key.json', TEXT, library);
+      var myJson:Dynamic = getPath('images/$key.json', TEXT, "shared");
       if (OpenFlAssets.exists(myJson) /* #if MODS_ALLOWED || (FileSystem.exists(myJson) && (useMod = true)) #end*/)
       {
         /*
