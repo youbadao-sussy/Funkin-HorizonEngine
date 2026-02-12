@@ -1,7 +1,12 @@
 package funkin.backend.save;
 
 import flixel.util.FlxSave;
+import flixel.input.keyboard.FlxKey;
+import flixel.input.gamepad.FlxGamepadInputID;
 
+/**
+ * save data for settings
+ */
 @:structInit class SaveVariables
 {
   public var downScroll:Bool = false;
