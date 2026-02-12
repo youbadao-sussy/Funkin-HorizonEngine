@@ -39,7 +39,7 @@ import funkin.Assets;
 import funkin.states.PlayState;
 import funkin.states.InitState;
 import funkin.util.GreatUtil;
-import funkin.ui.text.Alphabet;
+// import funkin.ui.text.Alphabet;
 // Haxe
 import haxe.ds.Option;
 // OpenFL
