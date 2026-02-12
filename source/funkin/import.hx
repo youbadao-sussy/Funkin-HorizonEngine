@@ -34,7 +34,7 @@ import flixel.input.keyboard.FlxKey;
 // Funkin
 import funkin.backend.Paths;
 import funkin.backend.save.SettingSaveData;
-import funkin.backend.api.HorizonDebugDisplay;
+// import funkin.backend.api.HorizonDebugDisplay;
 import funkin.Assets;
 import funkin.states.PlayState;
 import funkin.states.InitState;

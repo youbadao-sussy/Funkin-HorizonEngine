@@ -1,6 +1,6 @@
 package funkin.backend.api;
 
-import states.editors.MasterEditorMenu;
+// import states.editors.MasterEditorMenu;
 import flixel.FlxG;
 import lime.math.Rectangle;
 import openfl.display.Sprite;

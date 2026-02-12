@@ -1,4 +1,4 @@
-package source.funkin.ui.debug;
+package funkin.ui.debug;
 
 import flixel.FlxSubState;
 

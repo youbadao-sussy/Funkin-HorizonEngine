@@ -2,7 +2,7 @@ package funkin.backend.save;
 
 import flixel.util.FlxSave;
 
-@:structInit class SaveVariable
+@:structInit class SaveVariables
 {
   public var downScroll:Bool = false;
   public var middleScroll:Bool = false;
