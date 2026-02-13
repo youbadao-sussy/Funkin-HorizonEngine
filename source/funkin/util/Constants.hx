@@ -536,6 +536,31 @@ class Constants
   public static final EXT_STAGE = "fnfs";
 
   /**
+   * The file extension used when exporting cutscenes animation files.
+   */
+  public static final EXT_ANIMATION = "fnfa";
+
+  /**
+   * The file extension used when exporting cutscenes video files.
+   */
+  public static final EXT_VIDEO_FILE = "fnfv";
+
+  /**
+   * The file extension used when exporting sprite files.
+   */
+  public static final EXT_SPRITE = "fnfsp";
+
+  /**
+   * The file extension used when exporting freeplay files.
+   */
+  public static final EXT_FREEPLAY = "fnff";
+
+  /**
+   * The file extension used when exporting script files.
+   */
+  public static final EXT_SCRIPT = "fnfsc";
+
+  /**
    * The file extension used when loading audio files.
    */
   public static final EXT_SOUND = #if web "mp3" #else "ogg" #end;
@@ -651,22 +676,23 @@ class Constants
   /**
    * The path where our save data will be stored.
    */
-  public inline static final SAVE_PATH:String = 'FunkinCrew';
+  // public inline static final SAVE_PATH:String = 'FunkinCrew';
+  public inline static final SAVE_PATH:String = 'Youbadao';
 
   /**
    * The name of our save slot.
    */
-  public inline static final SAVE_NAME:String = 'Funkin';
+  // public inline static final SAVE_NAME:String = 'Funkin';
+  public inline static final SAVE_NAME:String = 'Horizon';
 
   /**
    * The legacy path where our save data was saved. Used for backwards compatibility.
    */
-  public inline static final SAVE_PATH_LEGACY:String = 'ninjamuffin99';
-
+  // public inline static final SAVE_PATH_LEGACY:String = 'ninjamuffin99';
   /**
    * The legacy save slot name, used for backwards compatibility.
    */
-  public inline static final SAVE_NAME_LEGACY:String = 'funkin';
+  // public inline static final SAVE_NAME_LEGACY:String = 'funkin';
 
   /**
    * We always use this save slot.

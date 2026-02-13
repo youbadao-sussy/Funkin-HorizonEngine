@@ -34,6 +34,11 @@ class Paths implements ConsoleClass
   public static var currentTrackedSounds:Map<String, Sound> = [];
   public static var dumpExclusions:Array<String> = ['assets/shared/music/freakyMenu.$SOUND_EXT'];
 
+  public static function excludeAsset(key:String)
+  {
+    if (!dumpExclusions.contains(key)) dumpExclusions.push(key);
+  }
+
   // haya I love you for the base cache dump I took to the max
   public static function clearUnusedMemory()
   {
@@ -99,7 +104,7 @@ class Paths implements ConsoleClass
     return parts[0];
   }
 
-  public static function getPath(file:String, type:AssetType, ?library:String):String
+  public static function getPath(file:String, ?type:AssetType = TEXT, ?library:String):String
   {
     if (library != null) return getFolderPath(file, library);
 
@@ -237,7 +242,7 @@ class Paths implements ConsoleClass
 
   // public static function cacheBitmap(key:String, ?library:String = null, ?bitmap:BitmapData, ?allowGPU:Bool = true):FlxGraphic
 
-  public static function cacheBitmap(key:String, ?library:String = null, ?bitmap:BitmapData, ?allowGPU:Bool = true):FlxGraphic
+  public static function cacheBitmap(key:String, ?library:String = null, ?bitmap:BitmapData):FlxGraphic
   {
     if (bitmap == null)
     {
@@ -287,6 +292,25 @@ class Paths implements ConsoleClass
   public static function ui(key:String, ?library:String):String
   {
     return xml('ui/$key', library);
+  }
+
+  public static function fileExists(key:String, type:AssetType, ?ignoreMods:Bool = false, ?library:String = null)
+  {
+    /*
+      #if MODS_ALLOWED
+      if (!ignoreMods)
+      {
+        var modKey:String = key;
+        if (parentFolder == 'songs') modKey = 'songs/$key';
+
+        for (mod in Mods.getGlobalMods())
+          if (FileSystem.exists(mods('$mod/$modKey'))) return true;
+
+        if (FileSystem.exists(mods(Mods.currentModDirectory + '/' + modKey)) || FileSystem.exists(mods(modKey))) return true;
+      }
+      #end
+     */
+    return (OpenFlAssets.exists(getPath(key, type, library)));
   }
 
   static public function getAtlas(key:String, ?library:String = null):FlxAtlasFrames
