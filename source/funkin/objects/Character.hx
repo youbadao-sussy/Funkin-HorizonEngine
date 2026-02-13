@@ -300,7 +300,7 @@ class Character extends FlxSprite
   }*/
   inline public function isAnimationNull():Bool
   {
-    return !isAnimateAtlas?animation.curAnim == null;
+    return animation.curAnim == null;
   }
 
   var _lastPlayedAnimation:String;
