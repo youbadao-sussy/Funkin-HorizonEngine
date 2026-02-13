@@ -185,7 +185,7 @@ class Character extends FlxSprite
 
     if (!isAnimateAtlas)
     {
-      frames = Paths.getMultiAtlas(json.image.split(','));
+      frames = Paths.getMultiAtlas(json.image.split(','), "shared");
     }
     imageFile = json.image;
     jsonScale = json.scale;
