@@ -2,7 +2,7 @@ package funkin.util;
 
 import flixel.system.FlxBasePreloader;
 import flixel.util.FlxColor;
-import funkin.data.song.SongData.SongTimeFormat;
+// import funkin.data.song.SongData.SongTimeFormat;
 import lime.app.Application;
 
 /**
@@ -285,7 +285,7 @@ class Constants
   /**
    * The default timing format for songs.
    */
-  public static final DEFAULT_TIMEFORMAT:SongTimeFormat = SongTimeFormat.MILLISECONDS;
+  // public static final DEFAULT_TIMEFORMAT:SongTimeFormat = SongTimeFormat.MILLISECONDS;
 
   /**
    * The default scroll speed for songs.

@@ -4,5 +4,5 @@ import funkin.util.Constants;
 
 class MainMenuState
 {
-  public static var horizonVersion:String = Constants.get_VERSION();
+  public static var horizonVersion:String = Constants.VERSION(get);
 }
