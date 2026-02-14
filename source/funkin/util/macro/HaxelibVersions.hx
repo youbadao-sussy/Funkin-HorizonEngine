@@ -23,7 +23,7 @@ class HaxelibVersions
   {
     var result:Array<String> = [];
 
-    var hmmFile:String = "hmm.json";
+    var hmmFile:String = "setup/windows.bat";
 
     #if ios
     if (!sys.FileSystem.exists(hmmFile)) hmmFile = "../../../../../" + hmmFile;
