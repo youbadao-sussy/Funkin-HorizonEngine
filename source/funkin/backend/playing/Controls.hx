@@ -217,7 +217,7 @@ class Controls
 
   public function new()
   {
-    keyboardBinds = ClientPrefs.keyBinds;
-    gamepadBinds = ClientPrefs.gamepadBinds;
+    keyboardBinds = SettingSaveData.keyBinds;
+    gamepadBinds = SettingSaveData.gamepadBinds;
   }
 }
