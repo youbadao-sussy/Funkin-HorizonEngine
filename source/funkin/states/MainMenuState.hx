@@ -1,6 +1,7 @@
 package funkin.states;
 
 import funkin.util.Constants;
+import flixel.FlxObject;
 
 enum MainMenuColumn
 {
@@ -282,14 +283,16 @@ class MainMenuState extends FlxState
           FlxTween.tween(memb, {alpha: 0}, 0.4, {ease: FlxEase.quadOut});
         }
       }
-      #if desktop
-      if (controls.justPressed('debug_1'))
-      {
-        selectedSomethin = true;
-        FlxG.mouse.visible = false;
-        MusicBeatState.switchState(new MasterEditorMenu());
-      }
-      #end
+      /*
+        #if desktop
+        if (controls.justPressed('debug_1'))
+        {
+          selectedSomethin = true;
+          FlxG.mouse.visible = false;
+          MusicBeatState.switchState(new MasterEditorMenu());
+        }
+        #end
+       */
     }
 
     super.update(elapsed);
