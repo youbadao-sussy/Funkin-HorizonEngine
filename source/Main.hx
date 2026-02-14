@@ -100,6 +100,8 @@ class Main extends Sprite
     });
     #end
 
+    Controls.instance = new Controls();
+    SettingSaveData.loadDefaultKeys();
     var game:FlxGame = new FlxGame(gameWidth, gameHeight, initialState, framerate, framerate, skipSplash, (FlxG.stage.window.fullscreen));
     addChild(game);
     Lib.current.stage.align = "tl";
