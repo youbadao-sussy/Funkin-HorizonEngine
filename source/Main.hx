@@ -26,6 +26,7 @@ import openfl.Lib;
 import openfl.media.Video;
 import openfl.net.NetStream;
 #if !macro
+import funkin.backend.save.SettingSaveData;
 import funkin.backend.playing.Controls;
 import funkin.states.PlayState;
 import funkin.states.InitState;
