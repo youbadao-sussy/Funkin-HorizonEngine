@@ -38,6 +38,9 @@ class PlayState extends FlxState
   // Camera
   public var camFollow:FlxObject;
   public var defaultCamZoom:Float = 1.00;
+  public var camHUD:FlxCamera;
+  public var camGame:FlxCamera;
+  public var camOther:FlxCamera;
 
   // Stage
   public static var curStage:String = '';
@@ -69,6 +72,16 @@ class PlayState extends FlxState
     // for lua
     instance = this;
 
+    camGame = new FlxCamera();
+    camHUD = new FlxCamera();
+    camOther = new FlxCamera();
+    camHUD.bgColor.alpha = 0;
+    camOther.bgColor.alpha = 0;
+    FlxG.cameras.reset(camGame);
+    FlxG.cameras.add(camHUD, false);
+    FlxG.cameras.add(camOther, false);
+    FlxG.cameras.setDefaultDrawTarget(camGame, true);
+
     // playerCameraOffset = stageData.camera_player;
     if (playerCameraOffset == null) // Fucks sake should have done it since the start :rolling_eyes:
       playerCameraOffset = [0, 0];
@@ -79,7 +92,7 @@ class PlayState extends FlxState
 
     playerGroup = new FlxSpriteGroup(PLY_X, PLY_Y);
 
-    player = new Character(0, 0, "bf", true);
+    player = new Character(0, 0, "assets/shared/data/characters/bf.json", true);
     startCharacterPos(player);
     playerGroup.add(player);
 

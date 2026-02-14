@@ -22,27 +22,42 @@
     {
       "name": "idle",
       "prefix": "BF idle dance",
-      "fps": 24
+      "fps": 24,
+      "looped": true,
+      "offsets": [0, 0],
+      "priority": 0
     },
     {
       "name": "singLEFT",
       "prefix": "BF NOTE LEFT",
-      "fps": 24
+      "fps": 24,
+      "looped": false,
+      "offsets": [0, 0],
+      "priority": 10
     },
     {
       "name": "singDOWN",
       "prefix": "BF NOTE DOWN",
-      "fps": 24
+      "fps": 24,
+      "looped": false,
+      "offsets": [0, 0],
+      "priority": 10
     },
     {
       "name": "singUP",
       "prefix": "BF NOTE UP",
-      "fps": 24
+      "fps": 24,
+      "looped": false,
+      "offsets": [0, 0],
+      "priority": 10
     },
     {
       "name": "singRIGHT",
       "prefix": "BF NOTE RIGHT",
-      "fps": 24
+      "fps": 24,
+      "looped": false,
+      "offsets": [0, 0],
+      "priority": 10
     }
   ],
   "generatedBy": "Youbadao (by hand)"
