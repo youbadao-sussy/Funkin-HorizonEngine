@@ -1,4 +1,4 @@
-package source.funkin.graphics.sprites.load;
+package funkin.graphics.sprites.load.horizonAtlas;
 
 typedef Metadata =
 {
