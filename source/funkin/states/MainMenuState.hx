@@ -53,7 +53,7 @@ class MainMenuState extends FlxState
 
     var yScroll:Float = 0.25;
     var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image(fileShit + 'bg/menuBG'));
-    bg.antialiasing = ClientPrefs.data.antialiasing;
+    bg.antialiasing = SettingSaveData.data.antialiasing;
     bg.scrollFactor.set(0, yScroll);
     bg.setGraphicSize(Std.int(bg.width * 1.175));
     bg.updateHitbox();
@@ -64,7 +64,7 @@ class MainMenuState extends FlxState
     add(camFollow);
 
     magenta = new FlxSprite(-80).loadGraphic(Paths.image(fileShit + 'bg/menuDesat'));
-    magenta.antialiasing = ClientPrefs.data.antialiasing;
+    magenta.antialiasing = SettingSaveData.data.antialiasing;
     magenta.scrollFactor.set(0, yScroll);
     magenta.setGraphicSize(Std.int(magenta.width * 1.175));
     magenta.updateHitbox();
@@ -105,7 +105,7 @@ class MainMenuState extends FlxState
     #end
 
     #if CHECK_FOR_UPDATES
-    if (showOutdatedWarning && ClientPrefs.data.checkForUpdates && substates.OutdatedSubState.updateVersion != psychEngineVersion)
+    if (showOutdatedWarning && SettingSaveData.data.checkForUpdates && substates.OutdatedSubState.updateVersion != psychEngineVersion)
     {
       persistentUpdate = false;
       showOutdatedWarning = false;
@@ -125,7 +125,7 @@ class MainMenuState extends FlxState
     menuItem.animation.play('idle');
     menuItem.updateHitbox();
 
-    menuItem.antialiasing = ClientPrefs.data.antialiasing;
+    menuItem.antialiasing = SettingSaveData.data.antialiasing;
     menuItem.scrollFactor.set();
     menuItems.add(menuItem);
     return menuItem;
@@ -225,7 +225,7 @@ class MainMenuState extends FlxState
         selectedSomethin = true;
         FlxG.mouse.visible = false;
 
-        if (ClientPrefs.data.flashing) FlxFlicker.flicker(magenta, 1.1, 0.15, false);
+        if (SettingSaveData.data.flashing) FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 
         var item:FlxSprite;
         var option:String;
