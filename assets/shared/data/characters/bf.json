@@ -23,7 +23,7 @@
       "name": "idle",
       "prefix": "BF idle dance",
       "fps": 24,
-      "looped": true,
+      "looped": false,
       "offsets": [0, 0],
       "priority": 0
     },
