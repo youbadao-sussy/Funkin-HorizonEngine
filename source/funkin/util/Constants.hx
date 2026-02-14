@@ -107,8 +107,7 @@ class Constants
   /**
    * The current library versions, as provided by hmm.
    */
-  public static final LIBRARY_VERSIONS:Array<String> = funkin.util.macro.HaxelibVersions.getLibraryVersions();
-
+  // public static final LIBRARY_VERSIONS:Array<String> = funkin.util.macro.HaxelibVersions.getLibraryVersions();
   /**
    * COLORS
    */
