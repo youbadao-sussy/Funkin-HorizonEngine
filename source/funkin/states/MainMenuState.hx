@@ -206,7 +206,7 @@ class MainMenuState extends FlxState
         selectedSomethin = true;
         FlxG.mouse.visible = false;
         FlxG.sound.play(Paths.sound('cancelMenu'));
-        MusicBeatState.switchState(new TitleState());
+        // MusicBeatState.switchState(new TitleState());
       }
 
       if (controls.ACCEPT || (FlxG.mouse.justPressed && allowMouse))
