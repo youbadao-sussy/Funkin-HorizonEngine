@@ -92,7 +92,8 @@ class PlayState extends FlxState
 
     playerGroup = new FlxSpriteGroup(PLY_X, PLY_Y);
 
-    player = new Character(0, 0, "assets/shared/data/characters/bf.json", true);
+    // player = new Character(0, 0, "assets/shared/data/characters/bf.json", true);
+    player = new Character(0, 0, "bf", true);
     startCharacterPos(player);
     playerGroup.add(player);
 
