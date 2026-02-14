@@ -354,7 +354,7 @@ class Paths implements ConsoleClass
 
   static public function getMultiAtlas(keys:Array<String>, ?library:String = null):FlxAtlasFrames
   {
-    var parentFrames:FlxAtlasFrames = Paths.getAtlas(keys[0].trim(), library);
+    var parentFrames:FlxAtlasFrames = Paths.getAtlas(keys[0].trim());
     if (keys.length > 1)
     {
       var original:FlxAtlasFrames = parentFrames;
