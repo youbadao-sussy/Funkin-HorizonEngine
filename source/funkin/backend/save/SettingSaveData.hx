@@ -163,7 +163,7 @@ class SettingSaveData
 
     // Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
     var save:FlxSave = new FlxSave();
-    save.bind('Save', GreatUtil.getSavePath());
+    save.bind('controls_v3', GreatUtil.getSavePath());
     save.data.keyboard = keyBinds;
     save.data.gamepad = gamepadBinds;
     save.flush();

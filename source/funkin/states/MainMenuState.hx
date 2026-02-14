@@ -7,9 +7,7 @@ import lime.app.Application;
 
 enum MainMenuColumn
 {
-  LEFT;
   CENTER;
-  RIGHT;
 }
 
 /**
