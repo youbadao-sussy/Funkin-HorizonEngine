@@ -2,6 +2,8 @@ package funkin.states;
 
 import funkin.util.Constants;
 import flixel.FlxObject;
+import flixel.effects.FlxFlicker;
+import lime.app.Application;
 
 enum MainMenuColumn
 {
