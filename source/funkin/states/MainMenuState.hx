@@ -40,6 +40,13 @@ class MainMenuState extends FlxState
 
   static var showOutdatedWarning:Bool = true;
 
+  public var controls(get, never):Controls;
+
+  private function get_controls()
+  {
+    return Controls.instance;
+  }
+
   /**
    * [CreateFunction]
    */
@@ -300,10 +307,6 @@ class MainMenuState extends FlxState
     {
       case CENTER:
         selectedItem = menuItems.members[curSelected];
-      case LEFT:
-        selectedItem = leftItem;
-      case RIGHT:
-        selectedItem = rightItem;
     }
     selectedItem.animation.play('selected');
     selectedItem.centerOffsets();
