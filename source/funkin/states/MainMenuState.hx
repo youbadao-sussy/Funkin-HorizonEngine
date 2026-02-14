@@ -196,21 +196,6 @@ class MainMenuState extends FlxState
         if (timeNotMoving > 2) FlxG.mouse.visible = false;
       }
 
-      switch (curColumn)
-      {
-        case CENTER:
-          if (controls.UI_LEFT_P && leftOption != null)
-          {
-            curColumn = LEFT;
-            changeItem();
-          }
-          else if (controls.UI_RIGHT_P && rightOption != null)
-          {
-            curColumn = RIGHT;
-            changeItem();
-          }
-      }
-
       if (controls.BACK)
       {
         selectedSomethin = true;
