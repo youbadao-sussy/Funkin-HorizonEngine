@@ -23,14 +23,14 @@
 
 	<!-- ______________________ HORIZON ENGINE CUSTOMIZATION ______________________ -->
 
-	<define name="CONTENTS_ALLOWED" if="desktop" />
-	<define name="HSCRIPT_ALLOWED" if="desktop" />
-	<define name="LUA_ALLOWED" if="desktop" />
-	<define name="ACHIEVEMENTS_ALLOWED" />
+	<!-- <define name="CONTENTS_ALLOWED" if="desktop" /> -->
+	<!-- <define name="HSCRIPT_ALLOWED" if="desktop" /> -->
+	<!-- <define name="LUA_ALLOWED" if="desktop" /> -->
+	<!-- <define name="ACHIEVEMENTS_ALLOWED" /> -->
 	<!-- <define name="DISCORD_ALLOWED" /> -->
 	<define name="FEATURE_DEBUG_FUNCTIONS"/>
-	<define name="TRANSLATIONS_ALLOWED" />
-	<define name="IRIS_DEBUG"/>
+	<!-- <define name="TRANSLATIONS_ALLOWED" /> -->
+	<!-- <define name="IRIS_DEBUG"/> -->
 	<define name="FEATURE_HAXEUI"/>
 
 
