@@ -1,0 +1,55 @@
+name: Debug Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  buildWindows:
+    runs-on: windows-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4.1.7
+      - uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: 4.3.7
+      # Runs a set of commands using the runners shell
+      - name: Restore Cache
+        uses: actions/cache@main
+        with:
+          key: cache-build-windows-debug
+          path: |
+            .haxelib/
+            export/debug/windows/haxe/
+            export/debug/windows/obj/
+          restore-keys: |
+            cache-build-windows
+      - name: Install Haxelib
+        run: |
+          haxelib setup C:/haxelib
+          haxelib install hxcpp > /dev/null --quiet
+          .\"setup/windows.bat"
+        shell: cmd
+      - name: Skip SScript setup mode
+        run: echo 'oy9:showMacroty8:loopCosti25y10:includeAllfg' >> %USERPROFILE%/settings.cocoa
+        shell: cmd
+      - name: Create Version Tag
+        run: echo "${{github.run_id}}" > VERSION
+      - name: Compile
+        run: haxelib run lime build windows -debug --app-version="4.0.0-${{ github.run_id}}"  -D officialBuild
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v4.3.4
+        with:
+          name: Funkin' HorizonEngine-Windows
+          path: export/debug/windows/bin
+          retention-days: 3
+      - name: Uploading new cache
+        uses: actions/cache@main
+        with:
+          key: cache-build-windows-debug
+          path: |
+            .haxelib/
+            export/release/windows/haxe/
+            export/release/windows/obj/
+          restore-keys: |
+            cache-build-windows-debug
